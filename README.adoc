@@ -23,6 +23,8 @@
 :common-includes: https://raw.githubusercontent.com/OpenLiberty/guides-common/prod
 = Creating a RESTful web service
 
+# This is a slightly modified version of the Open Liberty guide, showing how to add the WebSphere Migration Toolkit for Application Binaries to your build pipeline
+
 [.hidden]
 NOTE: This repository contains the guide documentation source. To view the guide in published form, view it on the https://openliberty.io/guides/{projectid}.html[Open Liberty website].
 

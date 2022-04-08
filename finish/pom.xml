@@ -69,6 +69,38 @@
     <build>
         <finalName>${project.artifactId}</finalName>
         <plugins>
+            <!-- Enable the binary scanner -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.0.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <includePluginDependencies>true</includePluginDependencies>
+                    <mainClass>com.ibm.ws.report.binary.cmdline.DriveScan</mainClass>
+                    <addOutputToClasspath>false</addOutputToClasspath>
+                    <arguments>
+                        <argument>${project.build.directory}/${project.build.finalName}.${project.packaging}</argument>
+                        <argument>--analyze</argument>
+                        <argument>--targetJava=java17</argument>
+                        <argument>--nobrowser</argument>
+                    </arguments>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.ibm.websphere.appmod.tools</groupId>
+                        <artifactId>binary-app-scanner</artifactId>
+                        <version>22.0.0.1</version>
+                        <type>jar</type>
+                </dependency>
+            </dependencies>
+            </plugin>    
             <!-- Enable liberty-maven plugin -->
             <plugin>
                 <groupId>io.openliberty.tools</groupId>

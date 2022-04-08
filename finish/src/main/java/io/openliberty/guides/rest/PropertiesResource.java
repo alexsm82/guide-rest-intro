@@ -31,6 +31,14 @@ public class PropertiesResource {
     @Produces(MediaType.APPLICATION_JSON)
     // end::produces[]
     public Properties getProperties() {
+        Properties props = System.getProperties();
+        Thread currentThread = Thread.currentThread();
+        int numStackFrames = currentThread.countStackFrames();
+        props.put("numStackFrames", numStackFrames);
+
+        String javaVersion = System.getProperty("java.version");
+        System.out.println("Running on java version: " + javaVersion);
+
         return System.getProperties();
     }
 
