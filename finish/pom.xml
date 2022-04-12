@@ -90,6 +90,7 @@
                         <argument>--analyze</argument>
                         <argument>--targetJava=java17</argument>
                         <argument>--nobrowser</argument>
+                        <argument>--output=${project.build.directory}</argument>
                     </arguments>
                 </configuration>
                 <dependencies>
